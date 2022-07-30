@@ -1,3 +1,4 @@
 ("Koliko je 10 + 8?", 12, 17, 18, 18)
 ("Koliko je 2 + 2?", 4, 6, 8, 4)
 ("Koliko je 8 * 7?", 87, 56, 43, 56)
+("Koliko je vseh celin?", 5, 6, 7, 7)
