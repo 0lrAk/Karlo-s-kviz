@@ -28,7 +28,7 @@ class Vprasanje:
         self.resitev = tuple[-1]
     
     def zmaga(self):
-        return int(rezultat>) == int(24) #Za zmago je potrebnih 24 pravilnih odgovorov
+        return int(rezultat) == int(24) #Za zmago je potrebnih 24 pravilnih odgovorov
 
     def ugibaj(self, odgovor):
         if odgovor == self.resitev:
@@ -58,7 +58,6 @@ class Kviz:
     def __init__(self):
         self.igre = {}
         self.datoteka_s_stanjem = "stanje.json"
-        self.nalozi_igre_iz_datoteke()
 
     def prost_id_igre(self):
         while True:

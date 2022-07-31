@@ -11,6 +11,7 @@ def izpis_poraza(igra):
 
 def pozeni_vmesnik():
     igra = novo_vprasanje()
+    igra
     while True:
         odgovor = input("ODGOVOR: ")
         igra.ugibaj(odgovor)
