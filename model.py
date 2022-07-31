@@ -86,13 +86,13 @@ class Kviz:
                 zgodovina = json.load(f)
             for id_igre, (vprasanje, odgovor, stanje) in zgodovina.items():
                 igra = Vprasanje(vprasanje)
-                igra.odgovor = set(odgovor)
+                igra.odgovori = set(odgovor)
                 self.igre[int(id_igre)] = (igra, stanje)
 
     def zapisi_igre_v_datoteko(self):
         """Kako se bo zadeva izpisevala v .json datoteko"""
         za_odlozit = {}
         for id_igre, (igra, stanje) in self.igre.items():
-            za_odlozit[id_igre] = (igra.vprasanje, igra.odgovor, stanje)
+            za_odlozit[id_igre] = (igra.vprasanje, igra.resitev, stanje)
         with open(self.datoteka_s_stanjem, "w", encoding="utf-8") as f:
             json.dump(za_odlozit, f)

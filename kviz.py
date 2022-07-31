@@ -23,11 +23,11 @@ def osnovno():
     ime_piskota = "povratek"
     ja = "ja"
     if bottle.request.get_cookie(ime_piskota) == ja:
-        pozdrav = "Me veseli, da se spet srečava!"
+        pozdrav = "Pozdravljen, me veseli, da se spet srečava!" #To se pojavi na začetku, ko vstopiš v igro (če si prej že bil v igri)
     else:
         #Shranimo piskotek
         bottle.response.set_cookie(ime_piskota, ja)
-        pozdrav = "Živjo, hitro odigraj svojo prvo igro :)"
+        pozdrav = "Dobrodošel v najbolj razgibanem kvizu, kar jih je!" #Ta pozdrav se pojavi le prvič, ko vstopiš v igro
     return bottle.template("index", pozdrav=pozdrav)
 
 @bottle.route("/igra/", method=["GET", "POST"])

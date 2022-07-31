@@ -1,9 +1,39 @@
 h1 {
     text-align: center;
     text-transform: uppercase;
-    color: blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 2px 2px 5px red;
+    color: rgb(28, 28, 26);
   }
-  
+
+h2 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(28, 28, 26);
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(28, 28, 26);
+}
+
+blockquote {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(28, 28, 26);
+}
+
+p {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(28, 28, 26);
+}
+
+body {
+    background-color: rgb(255, 152, 152);
+  }
+
   img {
    height: 300px;
   }
