@@ -22,5 +22,5 @@ Veliko sreče in zabave pri igranju!
 <p>AVTOR: Karlo Egić</p>
 
 <form action="/nova_igra/" method="post">
-<button type="submit">Nova igra</button>
+<button type="submit" text-align: center>Nova igra</button>
 </form>

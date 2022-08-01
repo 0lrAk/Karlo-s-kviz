@@ -16,8 +16,8 @@ VPRASANJA = pripravi_vprasanja()
 MAKSIMUM = 24 #Maksimalno stevilo pravilno odgovorjeni vprasanj == Zmaga
 ZMAGA = "ČESTITKE, pravilno ste odgovorili na vseh 24 vprašanj!"
 ZACETEK = "Zacetek"
-PRAVILNO = "Bravo, Vaš odgovor je pravilen!"
-NAPACNO = "Na žalost niste pravilno odgovorili na vprašanje. Poskusite ponovno."
+PRAVILNO = "p"
+NAPACNO = "n"
 rezultat = 0
 
 
@@ -37,17 +37,17 @@ class Vprasanje:
         if odgovor == self.resitev:
             rezultat += 1
             if self.zmaga():
-                return MAKSIMUM
+                return MAKSIMUM #Zmaga
             else:
-                print(PRAVILNO)
-                return Vprasanje(random.choice(VPRASANJA))      
+                Vprasanje(random.choice(VPRASANJA)) #Pokaže novo vprašanje
+                return PRAVILNO     
         else:
             print(rezultat) #V igri ne bo možno nadaljevati, če 1x odgovoriš narobe
+            print(self.resitev)
             return NAPACNO
     
     def rezultat(self):
         return rezultat
-
 
 def novo_vprasanje():
     return Vprasanje(random.choice(VPRASANJA)) #Izbere poljubno vprasanje
@@ -72,9 +72,9 @@ class Kviz:
         if os.path.exists(self.datoteka_s_stanjem):
             with open(self.datoteka_s_stanjem, encoding="utf-8") as f:
                 zgodovina = json.load(f)
-            for id_igre, (vprasanje, odgovor, stanje) in zgodovina.items():
-                igra = Vprasanje(vprasanje)
-                igra.odgovori = set(odgovor)
+            for id_igre, (tuple, odgovor, stanje) in zgodovina.items():
+                igra = Vprasanje(tuple)
+                igra.odgovor = set(odgovor)
                 self.igre[int(id_igre)] = (igra, stanje)
 
     def nova_igra(self):
@@ -105,6 +105,6 @@ class Kviz:
         """Kako se bo zadeva izpisevala v .json datoteko"""
         za_odlozit = {}
         for id_igre, (igra, stanje) in self.igre.items():
-            za_odlozit[id_igre] = (igra.vprasanje, igra.resitev, stanje)
+            za_odlozit[id_igre] = (igra.vprasanje, igra.odgovor, stanje)
         with open(self.datoteka_s_stanjem, "w", encoding="utf-8") as f:
             json.dump(za_odlozit, f)

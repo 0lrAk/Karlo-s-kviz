@@ -42,6 +42,7 @@ img {
 }
 
 button {
+    position: relative;
     background-color: #282828; 
     border: none;
     color: white;
