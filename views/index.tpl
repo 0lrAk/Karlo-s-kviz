@@ -17,7 +17,7 @@ si najlažje zapomnimo, če ne tistih, ki jih sami izbrskamo.
 Veliko sreče in zabave pri igranju!
 </blockquote>
 
-<img src="Slika_kiklopa.png" alt"nasa maskota">
+<img src="123.png">
 
 <p>AVTOR: Karlo Egić</p>
 

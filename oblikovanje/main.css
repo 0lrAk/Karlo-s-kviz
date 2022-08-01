@@ -3,43 +3,57 @@ h1 {
     text-transform: uppercase;
     font-family: 'Courier New', Courier, monospace;
     text-shadow: 2px 2px 5px red;
-    color: rgb(28, 28, 26);
-  }
+    color: rgb(243, 243, 181);
+}
 
 h2 {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    color: rgb(28, 28, 26);
+    color: rgb(243, 243, 181);
 }
 
 h3 {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    color: rgb(28, 28, 26);
+    color: rgb(243, 243, 181);
 }
 
 blockquote {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    color: rgb(28, 28, 26);
+    color: rgb(243, 243, 181);
 }
 
 p {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    color: rgb(28, 28, 26);
+    color: rgb(243, 243, 181);
 }
 
 body {
-    background-color: rgb(255, 152, 152);
-  }
+    background-color: rgb(32, 32, 32);
+}
 
-  img {
-   height: 300px;
-  }
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+button {
+    background-color: #282828; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
   
-  .gumb_crka {
-    background-color: #4CAF50;
+.gumb_crka {
+    background-color: #53eb58;
     color: white;
     width: 40px;
     height: 40px;
@@ -47,19 +61,19 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  }
+}
   
-  .vrsta0 {
-      padding-top: 2px;
-  }
-  .vrsta1 {
-      padding-top: 1px;
-      padding-bottom: 1px;
-      padding-left: 20px;
-  }
+.vrsta0 {
+    padding-top: 2px;
+}
+.vrsta1 {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 20px;
+}
   
-  .vrsta2 {
-      padding-top: 1px;
-      padding-bottom: 1px;
-      padding-left: 40px;
-  }
+.vrsta2 {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+}

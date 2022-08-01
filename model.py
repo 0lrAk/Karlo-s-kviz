@@ -24,7 +24,10 @@ rezultat = 0
 class Vprasanje:
     def __init__(self, tuple):
         self.vprasanje = tuple[0]
-        self.odgovori = tuple[1:4] #Tri možna odgovora
+        self.odgovorA = tuple[1] #Štiri možna odgovora
+        self.odgovorB = tuple[2] 
+        self.odgovorC = tuple[3] 
+        self.odgovorD = tuple[4] 
         self.resitev = tuple[-1]
     
     def zmaga(self):
@@ -65,6 +68,15 @@ class Kviz:
             if kandidat not in self.igre: #Če se ta ID še ne pojavi, 
                 return kandidat           #Nam ga vrne  
 
+    def nalozi_igre_iz_datoteke(self):
+        if os.path.exists(self.datoteka_s_stanjem):
+            with open(self.datoteka_s_stanjem, encoding="utf-8") as f:
+                zgodovina = json.load(f)
+            for id_igre, (vprasanje, odgovor, stanje) in zgodovina.items():
+                igra = Vprasanje(vprasanje)
+                igra.odgovori = set(odgovor)
+                self.igre[int(id_igre)] = (igra, stanje)
+
     def nova_igra(self):
         self.nalozi_igre_iz_datoteke()
         igra = nova_igra()
@@ -80,14 +92,14 @@ class Kviz:
         self.igre[id_igre] = (igra, novo_stanje)
         self.zapisi_igre_v_datoteko()
 
-    def nalozi_igre_iz_datoteke(self):
-        if os.path.exists(self.datoteka_s_stanjem):
-            with open(self.datoteka_s_stanjem, encoding="utf-8") as f:
-                zgodovina = json.load(f)
-            for id_igre, (vprasanje, odgovor, stanje) in zgodovina.items():
-                igra = Vprasanje(vprasanje)
-                igra.odgovori = set(odgovor)
-                self.igre[int(id_igre)] = (igra, stanje)
+    # def nalozi_igre_iz_datoteke(self):
+    #     if os.path.exists(self.datoteka_s_stanjem):
+    #         with open(self.datoteka_s_stanjem, encoding="utf-8") as f:
+    #             zgodovina = json.load(f)
+    #         for id_igre, (vprasanje, odgovor, stanje) in zgodovina.items():
+    #             igra = Vprasanje(vprasanje)
+    #             igra.odgovori = set(odgovor)
+    #             self.igre[int(id_igre)] = (igra, stanje)
 
     def zapisi_igre_v_datoteko(self):
         """Kako se bo zadeva izpisevala v .json datoteko"""
