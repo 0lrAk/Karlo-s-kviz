@@ -1,24 +1,9 @@
-#Model.py 
-
 from distutils.log import set_verbosity
 import random
+from re import I
 import uuid #Paket za ustvarjanje ID-ijev
 import json
 import os #Omogoča funkcije za "komuniciranje" z operacijskim sistemom
-
-
-def pripravi_vprasanja():
-    """Funkcija odpre dokument z vprašanji in prebere vsako vrstico posebje"""
-    with open("vprasanja.txt", encoding="utf-8") as f:
-        return [vrsta.strip() for vrsta in f.readlines()] #vrsta.strip, da se znebimo \n na koncu vrstice
-
-
-MAKSIMUM = 24 #Maksimalno stevilo pravilno odgovorjeni vprasanj == Zmaga
-ZMAGA = "ČESTITKE, pravilno ste odgovorili na vseh 24 vprašanj!"
-ZACETEK = "Zacetek"
-PRAVILNO = "p"
-NAPACNO = "n"
-rezultat = 0
 
 
 class Vprasanje:
@@ -60,54 +45,120 @@ def najdi_vprasajne(id_vprasanja):
             return vprasanje
 
 
+class Igra:
+    
+    IGRE = {} #Slovar že odigranih iger/kvizov
+
+    def __init__(self):
+        self.id_igre = None
+        self.vprasanja = []
+        self.stevilka_vprasanja = 0
+        self.pravilni = 0
+
+    def nova_igra(self):
+        self.id_igre = self.prost_id_igre()
+        self.vprasanja = random.sample(Vprasanje.VPRASANJA, 25)
+        Igra.IGRE[self.id_igre] = self
+    
+    def prost_id_igre(self):
+        while True:
+            kandidat = uuid.uuid4().int #uuid4 nam vrne "kodo" oz. id iz samih številk
+            if kandidat not in Kviz.IGRE: #Če se ta ID še ne pojavi, 
+                return kandidat           #Nam ga vrne  
+
+    def ugibaj(self, odgovor):
+        vprasanje = self.vprasanje[self.stevilka_vprasanja]
+        if vprasanje.odgovori[odgovor][1] == True:
+            self.pravilni += 1
+        self.stevilka_vprasanja += 1
+
+    def get_vprasanje(self, stevilka):
+        return self.vprasanja[stevilka]
+
+    def __str__(self):
+        return str(self.get_vprasanje(self.stevilka_vprasanja))
+
+    def stajne(self):
+        stanje = {}
+        stanje["id"] = self.id_igre
+        stanje["vprasanja"] = []
+        stanje["stevilka_vprasanja"] = self.stevilka_vprasanja
+        stanje["pravilni"] = self.pravilni
+        for vprasanje in self.vprasanja:
+            stanje["vprasanja"].append(vprasanje.id_vprasanja)
+        return stanje
+    
+    def shrani_stanje(self):
+        if os.path.exists("stanje.json"):
+            with open("stanje.json") as f:
+                stanja = json.load(f)
+        else:
+            stanja = []
+
+        for stanje in stanja:
+            if int(stanje["id"]) == self.id_igre:
+                stanja.remove(stanje)
+                break
+
+        stanja.append(self.stajne())
+        with open("stanje.json", "w") as f:
+            json.dump(stanja, f)
+        
+    def nalozi_stanje(self, id_igre):
+        if id_igre in Igra.IGRE:
+            print("Igra je ze nalozena")
+            return
+
+        if os.path.exists("stanje.json"):
+            with open("stanje.json") as f:
+                stanja = json.load(f)
+        else:
+            print("Nobena igra ni shranjena.")
+            self.nova_igra()
+            return
+        
+        for stanje in stanja:
+            if int(stanje["id"]) == id_igre:
+                break
+        else:
+            print("Igra ne obstaja.")
+            self.nova_igra()
+            return
+
+        self.id_igre = id_igre
+        self.stevilka_vprasanja = stanje["stevilka_vprasanja"]
+        self.pravilni = stanje["pravilni"]
+        for nr in stanje["vprasanja"]:
+            self.vprasanja.append(najdi_vprasajne(nr))
+
+
+VPRASANJA = pripravi_vprasanja()
+MAKSIMUM = 24 #Maksimalno stevilo pravilno odgovorjeni vprasanj == Zmaga
+ZMAGA = "ČESTITKE, pravilno ste odgovorili na vseh 24 vprašanj!"
+ZACETEK = "Zacetek"
+PRAVILNO = "p"
+NAPACNO = "n"
+rezultat = 0
+
+
 class Kviz:
     def __init__(self):
         self.igre = {}
         self.datoteka_s_stanjem = "stanje.json"
 
-    def prost_id_igre(self):
-        while True:
-            kandidat = uuid.uuid4().int #uuid4 nam vrne "kodo" oz. id iz samih številk
-            if kandidat not in self.igre: #Če se ta ID še ne pojavi, 
-                return kandidat           #Nam ga vrne  
-
-    def nalozi_igre_iz_datoteke(self):
-        if os.path.exists(self.datoteka_s_stanjem):
-            with open(self.datoteka_s_stanjem, encoding="utf-8") as f:
-                zgodovina = json.load(f)
-            for id_igre, (tuple, odgovor, stanje) in zgodovina.items():
-                igra = Vprasanje(tuple)
-                igra.odgovor = set(odgovor)
-                self.igre[int(id_igre)] = (igra, stanje)
-
     def nova_igra(self):
-        self.nalozi_igre_iz_datoteke()
-        igra = nova_igra()
-        novi_id = self.prost_id_igre() #Izberemo nek nov ID
-        self.igre[novi_id] = (igra, ZACETEK)
-        self.zapisi_igre_v_datoteko() #Igro zabeležimo v datoteko
-        return novi_id                #Funkcija pa nam vrne samo nov ID
+        igra = Igra()
+        igra.nova_igra()
+        return igra
+    
+    def nalozi_igro(self, id_igre):
+        igra = Igra()
+        igra.nalozi_stanje(id_igre)
+        return igra
 
     def ugibaj(self, id_igre, odgovor):
-        self.nalozi_igre_iz_datoteke()
-        igra = self.igre[id_igre][0]
-        novo_stanje = igra.ugibaj(odgovor)
-        self.igre[id_igre] = (igra, novo_stanje)
-        self.zapisi_igre_v_datoteko()
-
-    # def nalozi_igre_iz_datoteke(self):
-    #     if os.path.exists(self.datoteka_s_stanjem):
-    #         with open(self.datoteka_s_stanjem, encoding="utf-8") as f:
-    #             zgodovina = json.load(f)
-    #         for id_igre, (vprasanje, odgovor, stanje) in zgodovina.items():
-    #             igra = Vprasanje(vprasanje)
-    #             igra.odgovori = set(odgovor)
-    #             self.igre[int(id_igre)] = (igra, stanje)
-
-    def zapisi_igre_v_datoteko(self):
-        """Kako se bo zadeva izpisevala v .json datoteko"""
-        za_odlozit = {}
-        for id_igre, (igra, stanje) in self.igre.items():
-            za_odlozit[id_igre] = (igra.vprasanje, igra.odgovor, stanje)
-        with open(self.datoteka_s_stanjem, "w", encoding="utf-8") as f:
-            json.dump(za_odlozit, f)
+        igra = Igra.IGRE[id_igre]
+        igra.ugibaj(odgovor)
+    
+    def shrani_stanje_igre(self, id_igre):
+        Igra.IGRE[id_igre].shrani_stanje()
