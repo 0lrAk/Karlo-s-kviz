@@ -1,0 +1,282 @@
+[
+    {
+        "id": 0,
+        "tekst": "Katera je ena od redkih živalski vrst, pri kateri mladiče >rojevajo< moški?",
+        "odgovori": [
+            "morski konjički",
+            "mravlje",
+            "evglene",
+            "pingvini"
+        ]
+    },
+    {
+        "id": 1,
+        "tekst": "Kdo je avtor izvornega dramskega dela Whilliam Tell?",
+        "odgovori": [
+            "Schiller",
+            "Goethe",
+            "Sheakespear",
+            "Dickens"
+        ]
+    },
+    {
+        "id": 2,
+        "tekst": "Kako je v grški mitologiji ime očetu očeta vseh bogov?",
+        "odgovori": [
+            "Kronos",
+            "Zevs",
+            "Kronides",
+            "Uran"
+        ]
+    },
+    {
+        "id": 3,
+        "tekst": "Katera od navedenih besed je zapisana nepravilno, če domnevamo, da ne stoji na začetku povedi?",
+        "odgovori": [
+            "Božič",
+            "Cerkev",
+            "Neslovenec",
+            "Zemlja"
+        ]
+    },
+    {
+        "id": 4,
+        "tekst": "Kateri igralec igra eno od glavnih vlog v popularni TV-seriji Big Bang Theory?",
+        "odgovori": [
+            "Jim Parsons",
+            "Wil Wheaton",
+            "Kevin Sussman",
+            "Brian George"
+        ]
+    },
+    {
+        "id": 5,
+        "tekst": "Kako se v slovenščini imenuje vrsta besed, ki posnema nek narven glas, na primer mjavkanje --> mjav?",
+        "odgovori": [
+            "medmet",
+            "členek",
+            "predlog",
+            "samostalnik"
+        ]
+    },
+    {
+        "id": 6,
+        "tekst": "Kdo je bil Mustafa Kemal Atatürk?",
+        "odgovori": [
+            "predsednik in ustanovitelj Republike Turčije",
+            "egiptovski rokometaš in trener",
+            "igralec v kultni seriji Sulejamn Veličasni",
+            "arabski kvantni fizik"
+        ]
+    },
+    {
+        "id": 7,
+        "tekst": "Če velja a=2, b=4, c=6, je 'd' na potenco 0 enako:",
+        "odgovori": [
+            "1",
+            "8",
+            "0",
+            "16"
+        ]
+    },
+    {
+        "id": 8,
+        "tekst": "ASDFG ...",
+        "odgovori": [
+            "HJKLČ",
+            "QWERT",
+            "ZUIOP",
+            "YXCVB"
+        ]
+    },
+    {
+        "id": 9,
+        "tekst": "Po velikosti je Murska Sobota katero največje mesto v Sloveniji?",
+        "odgovori": [
+            "16.",
+            "6.",
+            "10.",
+            "20."
+        ]
+    },
+    {
+        "id": 10,
+        "tekst": "Kolikokrat na dan se urina kazalca prekrivata?",
+        "odgovori": [
+            "24-krat",
+            "12-krat",
+            "48-krat",
+            "0-krat"
+        ]
+    },
+    {
+        "id": 11,
+        "tekst": "S katere postaje prihajajo otroci v naslovu avtobiografije Christiane F.?",
+        "odgovori": [
+            "Zoo",
+            "Alexander Platz",
+            "Kottbusser Tor",
+            "Neuköln"
+        ]
+    },
+    {
+        "id": 12,
+        "tekst": "Tristan in...",
+        "odgovori": [
+            "Izolda",
+            "Iris",
+            "Ines",
+            "Ivona"
+        ]
+    },
+    {
+        "id": 13,
+        "tekst": "Kdo je avtor knjige Gospodar muh (The Lord of the Flies)?",
+        "odgovori": [
+            "William Golding",
+            "Toni Morrison",
+            "Abagnale Frank",
+            "John Menlow"
+        ]
+    },
+    {
+        "id": 14,
+        "tekst": "Koliko plasti sestavlja znamenito prekmursko gibanico (vključno s testom)?",
+        "odgovori": [
+            "19",
+            "7",
+            "12",
+            "15"
+        ]
+    },
+    {
+        "id": 15,
+        "tekst": "Katero je največje jezero na Slovenskem?",
+        "odgovori": [
+            "Cerkniško jezero",
+            "Bohinjsko jezero",
+            "Bukovniško jezero",
+            "Blejsko jezero"
+        ]
+    },
+    {
+        "id": 16,
+        "tekst": "Katero krvno skupino ima najmanj Slovencev?",
+        "odgovori": [
+            "AB",
+            "0",
+            "A",
+            "B"
+        ]
+    },
+    {
+        "id": 17,
+        "tekst": "Kako je ime švicarski organizaciji, ki je med drugim edina priznana organizacija za legalno eutaniziranje ljudi na svetu?",
+        "odgovori": [
+            "Dignitas",
+            "Junge Freiheit",
+            "Not Dead Yet",
+            "Selbstbewusst!"
+        ]
+    },
+    {
+        "id": 18,
+        "tekst": "SSKJ je kratica za kaj?",
+        "odgovori": [
+            "slovar slovenskega knjižnega jezika",
+            "slovensko staro kamnito jamo",
+            "simonova slano-kisla juha",
+            "smrtonostni slano-kisel ječmen."
+        ]
+    },
+    {
+        "id": 19,
+        "tekst": "Na kateri celini živi največ ljudi?",
+        "odgovori": [
+            "Aziji",
+            "Afriki",
+            "Severni Ameriki",
+            "Južni Ameriki"
+        ]
+    },
+    {
+        "id": 20,
+        "tekst": "Delo \"Dogodek v mestu Gogi\" je plod domišljije katerega slovenskega pisatelja?",
+        "odgovori": [
+            "Slavka Gruma",
+            "Avgusta Černigoja",
+            "Srečka Kosovela",
+            "Petra Krečiča"
+        ]
+    },
+    {
+        "id": 21,
+        "tekst": "Kako je ime glavnemu liku filma \"Sam doma\" (\"Home Alone\")?",
+        "odgovori": [
+            "Kevin",
+            "Bruce",
+            "John",
+            "George"
+        ]
+    },
+    {
+        "id": 22,
+        "tekst": "Po katerem Slovencu je dobila ime ljutomerska gimnazija?",
+        "odgovori": [
+            "Francu Miklošiču",
+            "Mišku Kranjcu",
+            "Antonu Slomšku",
+            "Feri Lainščku"
+        ]
+    },
+    {
+        "id": 23,
+        "tekst": "Kaj v hrvaščini pomeni beseda 'Zahod'?",
+        "odgovori": [
+            "stranišče",
+            "zahod",
+            "senčno plažo",
+            "trgovino"
+        ]
+    },
+    {
+        "id": 24,
+        "tekst": "Koliko tipk ima ponavadi klavir?",
+        "odgovori": [
+            "88",
+            "84",
+            "86",
+            "90"
+        ]
+    },
+    {
+        "id": 25,
+        "tekst": "Kaj je 'makao'?",
+        "odgovori": [
+            "eksotična ptica",
+            "igra s kockami",
+            "vrsta indijske jedi",
+            "zvrst kave"
+        ]
+    },
+    {
+        "id": 26,
+        "tekst": "Kaj od naštetega ni naravni satelit?",
+        "odgovori": [
+            "Betelges",
+            "Io",
+            "Deimos",
+            "Hiperion"
+        ]
+    },
+    {
+        "id": 27,
+        "tekst": "Kako se imenuje reka, ki se izliva v Sočo?",
+        "odgovori": [
+            "Vipava",
+            "Dragonja",
+            "Reka",
+            "Ljubljanica"
+        ]
+    }
+    ]

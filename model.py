@@ -1,5 +1,6 @@
 #Model.py 
 
+from distutils.log import set_verbosity
 import random
 import uuid #Paket za ustvarjanje ID-ijev
 import json
@@ -12,7 +13,6 @@ def pripravi_vprasanja():
         return [vrsta.strip() for vrsta in f.readlines()] #vrsta.strip, da se znebimo \n na koncu vrstice
 
 
-VPRASANJA = pripravi_vprasanja()
 MAKSIMUM = 24 #Maksimalno stevilo pravilno odgovorjeni vprasanj == Zmaga
 ZMAGA = "ČESTITKE, pravilno ste odgovorili na vseh 24 vprašanj!"
 ZACETEK = "Zacetek"
@@ -22,39 +22,42 @@ rezultat = 0
 
 
 class Vprasanje:
-    def __init__(self, tuple):
-        self.vprasanje = tuple[0]
-        self.odgovorA = tuple[1] #Štiri možna odgovora
-        self.odgovorB = tuple[2] 
-        self.odgovorC = tuple[3] 
-        self.odgovorD = tuple[4] 
-        self.resitev = tuple[-1]
-    
-    def zmaga(self):
-        return int(rezultat) == int(24) #Za zmago je potrebnih 24 pravilnih odgovorov
 
-    def ugibaj(self, odgovor):
-        if odgovor == self.resitev:
-            rezultat += 1
-            if self.zmaga():
-                return MAKSIMUM #Zmaga
+    VPRASANJA = [] #V ta seznam bomo dodajali vprašanja
+
+    def __init__(self):
+        self.id_vprasanja = -1
+        self.tekst = ""
+        self.odgovori = []
+    
+    def nalozi(self, podatki):
+        self.id_vprasanja = podatki["id"]
+        self.tekst = podatki["tekst"]
+        for i, odgovor in enumerate(podatki["odgovori"]):
+            if i == 0:
+                self.odgovori.append((odgovor, True))
             else:
-                Vprasanje(random.choice(VPRASANJA)) #Pokaže novo vprašanje
-                return PRAVILNO     
-        else:
-            print(rezultat) #V igri ne bo možno nadaljevati, če 1x odgovoriš narobe
-            print(self.resitev)
-            return NAPACNO
+                self.odgovori.append((odgovor, False))
+
+        Vprasanje.VPRASANJA.append(self)
+
+    def premesaj_odgovore(self):
+        random.shuffle(self.odgovori)
     
-    def rezultat(self):
-        return rezultat
+    def __str__(self):
+        return f"{self.tekst}\n{self.odgovori[0]}\n{self.odgovori[1]}\n{self.odgovori[2]}\n{self.odgovori[3]}"
 
-def novo_vprasanje():
-    return Vprasanje(random.choice(VPRASANJA)) #Izbere poljubno vprasanje
+def pripravi_vprasanja():
+    with open("vprasanja.json") as f:
+        seznam_vprasanj = json.load(f)
+    for vprasanje in seznam_vprasanj:
+        vpr = Vprasanje()
+        vpr.nalozi(vprasanje)
 
-def nova_igra():
-    rezultat = 0 #Resetiramo rezultat
-    return Vprasanje(random.choice(VPRASANJA)) #Izberemo novo polj. vprasanje
+def najdi_vprasajne(id_vprasanja):
+    for vprasanje in Vprasanje.VPRASANJA:
+        if vprasanje.id_vprasanja == id_vprasanja:
+            return vprasanje
 
 
 class Kviz:
