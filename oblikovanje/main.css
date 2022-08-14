@@ -43,9 +43,10 @@ img {
 
 button {
     position: relative;
-    background-color: #282828; 
+    align-self: center;
+    background-color: #a78989; 
     border: none;
-    color: white;
+    color: rgb(34, 31, 31);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -53,28 +54,3 @@ button {
     font-size: 16px;
 }
   
-.gumb_crka {
-    background-color: #53eb58;
-    color: white;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-  
-.vrsta0 {
-    padding-top: 2px;
-}
-.vrsta1 {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 20px;
-}
-  
-.vrsta2 {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 40px;
-}

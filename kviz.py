@@ -53,7 +53,6 @@ def ugibaj(id_igre):
     return pokazi_igro(id_igre)
 
 
-
 atexit.register(kviz.shrani_vse_igre)
 
 kviz.nalozi_vse_igre()

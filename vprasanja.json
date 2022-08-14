@@ -278,5 +278,124 @@
             "Reka",
             "Ljubljanica"
         ]
+    },
+    {
+        "id": 28, 
+        "tekst": "Koga je za pomoč prosil Orfej?",
+        "odgovori": [
+            "Hada",
+            "Kerbera",
+            "Zevsa",
+            "Muzo"
+        ]
+    },
+    {   "id": 29, 
+        "tekst": "Številu s 57 ničel pravimo:",
+        "odgovori": [
+            "noniljarda",
+            "decilijarda",
+            "centilijon",
+            "gugol"
+        ]
+    },
+    {
+        "id": 30, 
+        "tekst": "Kaj označuje 'K' v imenu pisateljice J.K.Rowling?",
+        "odgovori": [
+            "Kathleen",
+            "Kaden",
+            "Kim",
+            "Katniss"
+        ]
+    },
+    {   "id": 31, 
+        "tekst": "Katero font pisave najverjetneje ne bomo uporabili pri pisanju diplomske naloge?",
+        "odgovori": [
+            "Chiller",
+            "Calibri",
+            "Ariel",
+            "Georgia"
+    ]
+    },
+    {   "id": 32, 
+        "tekst": "Kdo je lastnik bara v katerega pogosto zahaja Homer Simpson?",
+        "odgovori": [
+            "Moe",
+            "Barni",
+            "Carl",
+            "Burns"
+    ]
+    },
+    {   "id": 33, 
+        "tekst": "Kateri britanski slikar je lahko slikal z obema rokama hkrati in je (bil) znan predvsem po portretih živali?",
+        "odgovori": [
+            "Edwin Lanseer",
+            "John Jackson",
+            "John Wootton",
+            "William Dobson"
+    ]
+    },
+    {   "id": 34, 
+        "tekst": "Kdaj praznujemo mednarodni dan števila 'pi'?",
+        "odgovori": [
+            "13.4",
+            "14.3",
+            "03.04",
+            "04.03"
+        ]
+    },
+    {   "id": 35, 
+        "tekst": "Kastor in",
+        "odgovori": [
+            "Poluks",
+            "Cerus",
+            "Erebus",
+            "Kozmos"
+    ]
+    },
+    {   "id": 36, 
+        "tekst": "Kako se imenuje grški bog spolnosti, poželenja in ljubezni?",
+        "odgovori": [
+            "Eros",
+            "Erebus",
+            "Elian",
+            "Eurus"
+    ]
+    },
+    {   "id": 37, 
+        "tekst": "Kako se imenuje najboljša kvizaška igrica v Sloveniji, če ne celo na svetu?",
+        "odgovori": [
+            "Kiklop",
+            "Joker",
+            "Milijonar",
+            "Kviz"
+        ]
+    },
+    {   "id": 38, 
+        "tekst": "Kaj je glavno mesto Čada?",
+        "odgovori": [
+            "N'Djamena",
+            "Juba",
+            "Tripolis",
+            "Addis-Abeba"
+        ]
+    },
+    {   "id": 39, 
+        "tekst": "Kaj je glavno mesto Malija?",
+        "odgovori": [
+            "Bamakao",
+            "Accra",
+            "Kampala",
+            "Niamey"
+        ]
+    },
+    {   "id": 40, 
+        "tekst": "Kaj je glavno mesto Mozambika?",
+        "odgovori": [
+            "Maputo",
+            "Cape Town",
+            "Monrovia",
+            "Luanda"
+        ]
     }
     ]
