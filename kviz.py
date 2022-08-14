@@ -1,5 +1,7 @@
 import bottle
 import model
+import atexit
+
 
 PISKOT_ZADNJA_IGRA = "zadnjaigra"
 ZADNJA_IGRA_KODA = "blazno skrivna koda"
@@ -49,6 +51,11 @@ def ugibaj(id_igre):
     odgovor = bottle.request.forms.dict
     kviz.ugibaj(id_igre, int(list(odgovor.keys())[0]))
     return pokazi_igro(id_igre)
-    
-    
+
+
+
+atexit.register(kviz.shrani_vse_igre)
+
+kviz.nalozi_vse_igre()
+
 bottle.run(reloader=True, debug=True)

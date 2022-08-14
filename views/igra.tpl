@@ -2,41 +2,26 @@
 
 <h1>KVIZ</h1>
 
-%novo_vprasanje()
-<p>Vaš rezultat je: {{igra.rezultat()}}</p>
 
-<p>VPRAŠANJE: {{igra.vprasanje()}}</p>
+<p>Vaš rezultat je: {{igra.pravilni}}</p>
+
+<p>VPRAŠANJE: {{igra.vprasanja[igra.stevilka_vprasanja].tekst}}</p>
 
 <p>Možni odgovori so: (Klikni na tistega, za katerega meniš, da je pravilen)</p>
 
+<form action="/igra/{{igra.id_igre}}" method="post">
 
-<button type="submit">{{igra.odgovorA}}</button>
-%if {{igra.resitev() == 1}}
-{{novo_vprasanje()}}
-%else
-<p>Vaš odgovor je žal napačen. Pravilen odgovor je bil {{igra.resitev()}}</p>
+<button type="submit" name="0">{{igra.vprasanja[igra.stevilka_vprasanja].odgovori[0]}}</button>
 
-<button type="submit">{{igra.odgovorB}}</button>
-%if {{igra.resitev() == 2}}
-{{novo_vprasanje()}}
-%else
-<p>Vaš odgovor je žal napačen. Pravilen odgovor je bil {{igra.resitev()}}</p>
 
-<button type="submit">{{igra.odgovorC}}</button>
-%if {{igra.resitev()== 3}}
-{{novo_vprasanje()}}
-%else
-<p>Vaš odgovor je žal napačen. Pravilen odgovor je bil {{igra.resitev()}}</p>
+<button type="submit" name="1">{{igra.vprasanja[igra.stevilka_vprasanja].odgovori[1]}}</button>
 
-<button type="submit">{{igra.odgovorD}}</button>
-%if {{igra.resitev()== 4}}
-{{novo_vprasanje()}}
-%else
-<p>Vaš odgovor je žal napačen. Pravilen odgovor je bil {{igra.resitev()}}</p>
 
-%if igra.zmaga():
-<h1>ČESTITKE, PRAVILNO STE ODGOVORILI NA VSEH 24 VPRAŠANJ!</h1>
+<button type="submit" name="2">{{igra.vprasanja[igra.stevilka_vprasanja].odgovori[2]}}</button>
 
-<p>Število pravilno odgovorjeni vprašanj: {{igra.rezultat()}}</p>
+
+<button type="submit" name="3">{{igra.vprasanja[igra.stevilka_vprasanja].odgovori[3]}}</button>
+
+</form>
 
 %end
